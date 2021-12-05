@@ -12,5 +12,7 @@ jobs:
           MY_PASSWORD: ${{ secrets.PASSWORD }}
         run: echo "Hello $MY_PASSWORD"
 
-      - name: Show context
-        run: echo ${{ toJson(github) }}
+      - name: Show github context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
