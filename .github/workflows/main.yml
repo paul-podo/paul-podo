@@ -1,0 +1,16 @@
+name: Hello Secret
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello My Password
+        env:
+          MY_PASSWORD: ${{ secrets.PASSWORD }}
+        run: echo "Hello $MY_PASSWORD"
+
+      - name: Show context
+        run: echo ${{ toJson(github) }}
